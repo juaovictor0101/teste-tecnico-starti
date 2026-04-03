@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/posts")
@@ -30,12 +29,6 @@ public class PostController {
     public ResponseEntity<PostResponseDTO> getPostById(@PathVariable Long id) {
         PostResponseDTO post = postService.getPostById(id);
         return ResponseEntity.ok(post);
-    }
-
-    @GetMapping("/user/{userId}")
-    public ResponseEntity<List<PostResponseDTO>> getPublicPostsByUserId(@PathVariable Long userId) {
-        List<PostResponseDTO> posts = postService.getPublicPostsByUserId(userId);
-        return ResponseEntity.ok(posts);
     }
 
     @PutMapping("/{id}")
